@@ -45,9 +45,6 @@ export async function requireOrdersCanMatch(
     accountAddress,
   }: { buy: Order; sell: Order; accountAddress: string }
 ) {
-  console.log("BUY: ", buy)
-  console.log("SELL: ", sell)
-  console.log("address: ", accountAddress)
   const result = await client.wyvernExchange.ordersCanMatch_.callAsync(
     [
       buy.exchange,
