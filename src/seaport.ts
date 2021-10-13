@@ -3178,8 +3178,10 @@ export class OpenSeaPort {
     },
     retries = 1
   ): Promise<boolean> {
-    console.log("BUY: ", buy)
-    console.log("SELL: ", sell)
+    this.logger("BUY: ")
+    this.logger(JSON.stringify(buy, null, 2))
+    this.logger("SELL: ")
+    this.logger(JSON.stringify(sell, null, 2))
     try {
       if (shouldValidateBuy) {
         const buyValid = await this._validateOrder(buy)
