@@ -45,6 +45,65 @@ export async function requireOrdersCanMatch(
     accountAddress,
   }: { buy: Order; sell: Order; accountAddress: string }
 ) {
+  console.log("---------------------------------------")
+  console.log("addrs: ", [
+    buy.exchange,
+    buy.maker,
+    buy.taker,
+    buy.feeRecipient,
+    buy.target,
+    buy.staticTarget,
+    buy.paymentToken,
+    sell.exchange,
+    sell.maker,
+    sell.taker,
+    sell.feeRecipient,
+    sell.target,
+    sell.staticTarget,
+    sell.paymentToken,
+  ])
+
+  console.log("uints: ", [
+    buy.makerRelayerFee,
+    buy.takerRelayerFee,
+    buy.makerProtocolFee,
+    buy.takerProtocolFee,
+    buy.basePrice,
+    buy.extra,
+    buy.listingTime,
+    buy.expirationTime,
+    buy.salt,
+    sell.makerRelayerFee,
+    sell.takerRelayerFee,
+    sell.makerProtocolFee,
+    sell.takerProtocolFee,
+    sell.basePrice,
+    sell.extra,
+    sell.listingTime,
+    sell.expirationTime,
+    sell.salt,
+  ])
+
+  console.log("feeMethodsSidesKindsHowtoCalls: ", [
+    buy.feeMethod,
+    buy.side,
+    buy.saleKind,
+    buy.howToCall,
+    sell.feeMethod,
+    sell.side,
+    sell.saleKind,
+    sell.howToCall,
+  ])
+
+  console.log("calldatabuy: ", buy.calldata)
+
+  console.log("calldatasell: ", sell.calldata)
+
+  console.log("buyreplacementpattern: ", buy.replacementPattern)
+  console.log("sellreplacementpattern: ", sell.replacementPattern)
+
+  console.log("staticextradatabuy: ", buy.staticExtradata)
+  console.log("staticextradatasell: ", sell.staticExtradata)
   const result = await client.wyvernExchange.ordersCanMatch_.callAsync(
     [
       buy.exchange,
