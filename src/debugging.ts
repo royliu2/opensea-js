@@ -101,8 +101,8 @@ export async function requireOrdersCanMatch(
     { from: accountAddress }
   )
 
-  this.logger("CAN MATCH RESULT")
-  this.logger(JSON.stringify(result, null, 2))
+  console.log("CAN MATCH RESULT")
+  console.log(JSON.stringify(result, null, 2))
 
   if (result) {
     return
